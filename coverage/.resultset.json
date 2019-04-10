@@ -1,20 +1,30 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/admin/tech-tests/clothingshop/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/admin/tech-tests/clothingshop/app/helpers/shop_items_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/admin/tech-tests/clothingshop/app/controllers/shop_items_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/admin/tech-tests/clothingshop/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
       "/Users/admin/tech-tests/clothingshop/app/models/application_record.rb": [
         0,
         0,
         0
-      ],
-      "/Users/admin/tech-tests/clothingshop/app/controllers/application_controller.rb": [
-        0,
-        0
-      ],
-      "/Users/admin/tech-tests/clothingshop/app/helpers/application_helper.rb": [
-        0,
-        0
       ]
     },
-    "timestamp": 1554823207
+    "timestamp": 1554930071
   }
 }
