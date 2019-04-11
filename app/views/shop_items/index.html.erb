@@ -1,0 +1,9 @@
+<h1>Welcome to our clothing shop!</h1>
+
+<div> Product Name | Category | Price | Quantity in Stock </div>
+
+<% @shop_items.each do |item| %>
+<div>
+  <%= item.product_name %> | <%= item.category %> | £<%= item.price %> | <%= item.quantity_in_stock %>
+<div>
+<% end %>
