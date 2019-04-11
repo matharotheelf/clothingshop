@@ -55,5 +55,13 @@ class ShopItemsController < ApplicationController
                       quantity_in_stock: 5)
     end
     @shop_items = ShopItem.all
+    @basket_items = BasketItem.all
+  end
+
+  def create
+    @basket_item = BasketItem.create(
+      product_name: params[:product_name], price: params[:price]
+    )
+    redirect_to root_url
   end
 end

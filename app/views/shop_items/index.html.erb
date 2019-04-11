@@ -2,8 +2,24 @@
 
 <div> Product Name | Category | Price | Quantity in Stock </div>
 
+<br>
+
 <% @shop_items.each do |item| %>
 <div>
   <%= item.product_name %> | <%= item.category %> | £<%= item.price %> | <%= item.quantity_in_stock %>
+
+  <%= form_tag({controller: "shop_items", action: "create"}, method: "post") do %>
+    <%= hidden_field_tag :product_name, item.product_name %>
+    <%= hidden_field_tag :price, item.price %>
+    <%= submit_tag "Buy", id: item.product_name %>
+  <% end %>
 <div>
+<% end %>
+
+<h2>Basket</h2>
+
+<% @basket_items.each do |item| %>
+<div>
+  <%= item.product_name %>
+</div>
 <% end %>
