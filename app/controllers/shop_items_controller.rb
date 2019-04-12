@@ -54,7 +54,16 @@ class ShopItemsController < ApplicationController
                       price: 540,
                       quantity_in_stock: 5)
     end
+    if Voucher.first.nil?
+      Voucher.create(name: '£5 pound off',
+                     is_applied: false)
+      Voucher.create(name: '£10.00 off when you spend over £50.00',
+                     is_applied: false)
+      Voucher.create(name: '£15.00 off when you have bought at least one footwear item and spent over £75.00',
+                     is_applied: false)
+    end
     @shop_items = ShopItem.all
     @basket_items = BasketItem.all
+    @vouchers = Voucher.all
   end
 end

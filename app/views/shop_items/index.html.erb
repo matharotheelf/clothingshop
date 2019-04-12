@@ -31,4 +31,12 @@
 </div>
 <% end %>
 
-<h2>Total Price: <%= total_price %></h2>
+<h3>Total Price: <%= total_price %></h3>
+
+<h2>Vouchers</h2>
+
+<% @vouchers.each do |item| %>
+<div>
+  <%= item.name %>
+</div>
+<% end %>
