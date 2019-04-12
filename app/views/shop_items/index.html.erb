@@ -1,3 +1,5 @@
+<%= flash[:notice] if flash[:notice] %>
+
 <h1>Welcome to our clothing shop!</h1>
 
 <div> Product Name | Category | Price | Quantity in Stock </div>
@@ -35,21 +37,24 @@
 
 <h2>Vouchers</h2>
 
+<%reduced_price = total_price %>
+
 <% @vouchers.each do |item| %>
 <div>
   <%= item.name %>
   <%= form_tag({controller: "vouchers", action: "apply"}, method: "post") do %>
     <%= hidden_field_tag :name, item.name %>
+    <%= hidden_field_tag :total_price, total_price %>
     <%= submit_tag "Apply", id: item.name %>
   <% end %>
   <% if item.is_applied%>
-    <% total_price -= item.discount %>
+    <% reduced_price -= item.discount %>
   <% end %>
 </div>
 <% end %>
 
-<% if total_price < 0 %>
-  <% total_price = 0 %>
+<% if reduced_price < 0 %>
+  <% reduced_price = 0 %>
 <% end %>
 
-<h3>Reduced Price: £<%= total_price %></h3>
+<h3>Reduced Price: £<%= reduced_price %></h3>
