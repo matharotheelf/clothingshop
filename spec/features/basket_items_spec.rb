@@ -16,4 +16,15 @@ RSpec.feature 'Basket', type: :feature do
       )
     end
   end
+
+  describe 'User can can see price of all basket items' do
+    scenario 'User can see price of all basket items' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Suede Shoes, Blue'
+      expect(page).to have_content(
+        'Total Price: 141.0'
+      )
+    end
+  end
 end

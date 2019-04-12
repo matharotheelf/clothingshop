@@ -18,12 +18,17 @@
 
 <h2>Basket</h2>
 
+<% total_price = 0 %>
+
 <% @basket_items.each do |item| %>
 <div>
   <%= item.product_name %>
+  <% total_price += item.price.to_f %>
   <%= form_tag({controller: "basket_items", action: "delete"}, method: "post") do %>
     <%= hidden_field_tag :id, item.id %>
     <%= submit_tag "Delete", id: "Delete " + item.id.to_s %>
   <% end %>
 </div>
 <% end %>
+
+<h2>Total Price: <%= total_price %></h2>
