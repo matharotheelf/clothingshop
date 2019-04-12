@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_191957) do
   create_table "vouchers", force: :cascade do |t|
     t.string "name"
     t.boolean "is_applied"
+    t.float "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
