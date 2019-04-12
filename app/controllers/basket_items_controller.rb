@@ -6,7 +6,9 @@ class BasketItemsController < ApplicationController
     redirect_to root_url
   end
 
-  def destroy
+  def delete
+    @basket_item = BasketItem.find(params[:id])
+    @basket_item.destroy
     redirect_to root_url
   end
 end
