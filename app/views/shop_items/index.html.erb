@@ -48,4 +48,8 @@
 </div>
 <% end %>
 
+<% if total_price < 0 %>
+  <% total_price = 0 %>
+<% end %>
+
 <h3>Reduced Price: £<%= total_price %></h3>
