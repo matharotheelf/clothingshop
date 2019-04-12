@@ -21,5 +21,9 @@
 <% @basket_items.each do |item| %>
 <div>
   <%= item.product_name %>
+  <%= form_tag({controller: "basket_items", action: "delete"}, method: "post") do %>
+    <%= hidden_field_tag :id, item.id %>
+    <%= submit_tag "Delete", id: "Delete " + item.id.to_s %>
+  <% end %>
 </div>
 <% end %>
