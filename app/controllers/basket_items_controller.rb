@@ -18,6 +18,12 @@ class BasketItemsController < ApplicationController
     @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock + 1)
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
-    redirect_to root_url
+    @voucher = Voucher.find_by_name('£10.00 off when you spend over £50.00')
+    if @voucher.is_applied == true
+      @voucher.update(is_applied: false)
+      redirect_to root_url, notice: 'Vouchers removed when item deleted from basket.'
+    else
+      redirect_to root_url
+    end
   end
 end

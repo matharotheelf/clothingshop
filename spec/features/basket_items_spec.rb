@@ -55,4 +55,18 @@ RSpec.feature 'BasketItems', type: :feature do
       )
     end
   end
+
+  describe 'Deleting item from basket removes all vouchers' do
+    scenario '10 pound voucher removed when item deleted from basket' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Flip Flops, Red'
+      click_button '£10.00 off when you spend over £50.00'
+      click_button 'Delete 1'
+      expect(page).to have_content(
+        'Vouchers removed when item deleted from basket.'
+      )
+      expect(page).to have_content('Reduced Price: £19.0')
+    end
+  end
 end
