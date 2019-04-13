@@ -23,7 +23,7 @@ RSpec.feature 'BasketItems', type: :feature do
       click_button 'Almond Toe Court Shoes, Patent Black'
       click_button 'Suede Shoes, Blue'
       expect(page).to have_content(
-        'Total Price: 141.0'
+        'Total Price: £141.0'
       )
     end
   end
