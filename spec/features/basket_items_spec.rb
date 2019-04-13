@@ -45,5 +45,14 @@ RSpec.feature 'BasketItems', type: :feature do
         'Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.0 | 4'
       )
     end
+
+    scenario 'Deleting item from basket increases stock by 1' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Delete 1'
+      expect(page).to have_content(
+        'Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.0 | 5'
+      )
+    end
   end
 end

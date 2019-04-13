@@ -14,6 +14,8 @@ class BasketItemsController < ApplicationController
   end
 
   def delete
+    @shop_item = ShopItem.find_by_product_name(params[:product_name])
+    @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock + 1)
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
     redirect_to root_url
