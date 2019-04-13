@@ -11,10 +11,7 @@
   <%= item.product_name %> | <%= item.category %> | £<%= item.price %> | <%= item.quantity_in_stock %>
 
   <%= form_tag({controller: "basket_items", action: "create"}, method: "post") do %>
-    <%= hidden_field_tag :product_name, item.product_name %>
-    <%= hidden_field_tag :category, item.category %>
-    <%= hidden_field_tag :price, item.price %>
-    <%= hidden_field_tag :quantity_in_stock, item.quantity_in_stock %>
+    <%= hidden_field_tag :id, item.id %>>
     <%= submit_tag "Buy", id: item.product_name %>
   <% end %>
 <div>

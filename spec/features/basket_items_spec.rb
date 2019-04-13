@@ -37,5 +37,13 @@ RSpec.feature 'BasketItems', type: :feature do
       )
       expect(page).to have_content('Item out of stock.')
     end
+
+    scenario 'Adding item to basket decreases stock by 1' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      expect(page).to have_content(
+        'Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.0 | 4'
+      )
+    end
   end
 end
