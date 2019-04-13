@@ -35,7 +35,7 @@ RSpec.feature 'Vouchers', type: :feature do
       expect(page).to have_content('Reduced Price: £0')
     end
 
-    scenario 'Can not incorectly apply 10 pound off voucher' do
+    scenario 'Can not incorrectly apply 10 pound off voucher' do
       visit '/'
       click_button 'Suede Shoes, Blue'
       click_button '£10.00 off when you spend over £50.00'

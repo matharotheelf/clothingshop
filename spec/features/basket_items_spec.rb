@@ -27,4 +27,15 @@ RSpec.feature 'BasketItems', type: :feature do
       )
     end
   end
+
+  describe 'Number of item in basket can not exceed number in stock' do
+    scenario 'Out of stock items can not be placed in basket' do
+      visit '/'
+      click_button 'Flip Flops, Blue'
+      expect(page).to have_content(
+        'Flip Flops, Blue', count: 1
+      )
+      expect(page).to have_content('Item out of stock.')
+    end
+  end
 end
