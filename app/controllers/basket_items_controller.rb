@@ -1,7 +1,8 @@
 class BasketItemsController < ApplicationController
   def create
     @basket_item = BasketItem.create(
-      product_name: params[:product_name], price: params[:price]
+      product_name: params[:product_name], price: params[:price],
+      category: params[:category]
     )
     redirect_to root_url
   end

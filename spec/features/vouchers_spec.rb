@@ -50,5 +50,13 @@ RSpec.feature 'Vouchers', type: :feature do
       expect(page).to have_content('You can not currently use that voucher.')
       expect(page).to have_content('Reduced Price: £39.99')
     end
+
+    scenario 'Can not apply 15 pound off voucher if under no shoes bought' do
+      visit '/'
+      click_button 'Bird Print Dress, Black'
+      click_button '£15.00 off when you have bought at least one footwear item and spent over £75.00'
+      expect(page).to have_content('You can not currently use that voucher.')
+      expect(page).to have_content('Reduced Price: £270')
+    end
   end
 end
