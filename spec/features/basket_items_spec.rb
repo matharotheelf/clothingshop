@@ -1,4 +1,4 @@
-RSpec.feature 'Basket', type: :feature do
+RSpec.feature 'BasketItems', type: :feature do
   describe 'User can add and remove to and from basket' do
     scenario 'User can add items to basket' do
       visit '/'
@@ -24,6 +24,25 @@ RSpec.feature 'Basket', type: :feature do
       click_button 'Suede Shoes, Blue'
       expect(page).to have_content(
         'Total Price: 141.0'
+      )
+    end
+  end
+
+  describe 'Number of item in basket can not exceed number in stock' do
+    scenario 'Out of stock items can not be placed in basket' do
+      visit '/'
+      click_button 'Flip Flops, Blue'
+      expect(page).to have_content(
+        'Flip Flops, Blue', count: 1
+      )
+      expect(page).to have_content('Item out of stock.')
+    end
+
+    scenario 'Adding item to basket decreases stock by 1' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      expect(page).to have_content(
+        'Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.0 | 4'
       )
     end
   end
