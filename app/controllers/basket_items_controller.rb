@@ -19,7 +19,7 @@ class BasketItemsController < ApplicationController
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
     @vouchers = Voucher.all
-    if @vouchers[1].is_applied || @vouchers[2].is_applied
+    if @vouchers[0].is_applied || @vouchers[1].is_applied || @vouchers[2].is_applied
       @vouchers.each do |item|
         item.update(is_applied: false)
       end
