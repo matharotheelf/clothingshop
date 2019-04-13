@@ -23,7 +23,7 @@ class BasketItemsController < ApplicationController
       @vouchers.each do |item|
         item.update(is_applied: false)
       end
-      redirect_to root_url, notice: 'Vouchers removed when item deleted from basket.'
+      redirect_to root_url, notice: 'Vouchers removed when an item deleted from basket.'
     else
       redirect_to root_url
     end

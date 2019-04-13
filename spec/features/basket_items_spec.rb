@@ -64,7 +64,7 @@ RSpec.feature 'BasketItems', type: :feature do
       click_button '£10.00 off when you spend over £50.00'
       click_button 'Delete 1'
       expect(page).to have_content(
-        'Vouchers removed when item deleted from basket.'
+        'Vouchers removed when an item deleted from basket.'
       )
       expect(page).to have_content('Reduced Price: £19.0')
     end
@@ -76,7 +76,7 @@ RSpec.feature 'BasketItems', type: :feature do
       click_button '£15.00 off when you have bought at least one footwear item and spent over £75.00'
       click_button 'Delete 1'
       expect(page).to have_content(
-        'Vouchers removed when item deleted from basket.'
+        'Vouchers removed when an item deleted from basket.'
       )
       expect(page).to have_content('Reduced Price: £19.0')
     end
@@ -88,7 +88,7 @@ RSpec.feature 'BasketItems', type: :feature do
       click_button '£5 pound off'
       click_button 'Delete 1'
       expect(page).to have_content(
-        'Vouchers removed when item deleted from basket.'
+        'Vouchers removed when an item deleted from basket.'
       )
       expect(page).to have_content('Reduced Price: £19.0')
     end
