@@ -14,15 +14,15 @@ This app has the functionality of a simple clothing shop with the following feat
 
 ## Approach
 
-I decided to use Ruby on Rails to develop this app as Rails conventions would make sure my work was easy to interpret.
+I decided to use Ruby on Rails to develop this app, as Rails conventions would make sure my work was easy to interpret.
 
-I created three different models: ShopItem to store the data of the items available to the user, Voucher to store the available vouchers and whether they were applied and BasketItem to store items the user has put into the basket. 
+I created three different models: ShopItem, to store the data of the items available to the user; Voucher, to store the available vouchers and whether they were applied; and BasketItem, to store items the user has put into the basket. 
 
-The data in the models were managed by three controllers. ShopItems has an index method which runs the root web page and stores the vouchers and shop items to the database when the app is first opened. BasketItems add and deletes itmes from the BasketItem table when the user removes and adds items to their basket. Vouchers edits entries in the Voucher table when the user applies vouchers.
+The data in the models were managed by three controllers. ShopItems has an index method which runs the root web page. This stores the vouchers and shop items to the database when the app is first opened. BasketItems adds and deletes items from the BasketItem table when the user removes or adds items to or from their basket. Vouchers edits entries in the Voucher table when the user applies vouchers.
 
 I decided to make this app a single page app so all the information is available to the user in one page and to keep the app simple. This means there is only one view shop-items/index.html.erb.
 
-I realised there was a bug when a voucher is applied and afterwards an item is deleted from the basket. The voucher remained applied yet with the current basket could be invalid. I solved this in the simplest way possible by removing all vouchers once an item is deleted from the basket. 
+I realised there was a bug when a voucher is applied and afterwards an item is deleted from the basket. The voucher remained applied yet with the current basket could be invalid. I solved this in the simplest way possible by removing all vouchers once an item is deleted from the basket a warning is present to clarify this situation to the user. 
 
 ## Tech Stack
 Ruby v 2.5.1
@@ -70,7 +70,7 @@ As a User I can view the products and their category, price and availability inf
 4. As a User I can apply a voucher to my shopping cart.
 5. As a User I can view the total price for the products in my shopping cart with discounts applied.
 6. As a User I am alerted when I apply an invalid voucher to my shopping cart.
-7. As a User I am unable to Out of Stock products to the shopping cart.
+7. As a User I am unable to add Out of Stock products to the shopping cart.
 ```
 
 ## Contributors
