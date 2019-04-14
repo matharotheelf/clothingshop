@@ -14,9 +14,7 @@ class BasketItemsController < ApplicationController
     destroy_basket_item
     @vouchers = Voucher.all
     if vouchers_applied?
-      @vouchers.each do |item|
-        item.update(is_applied: false)
-      end
+      remove_vouchers
       redirect_to root_url, notice: 'Vouchers removed when an item deleted from basket.'
     else
       redirect_to root_url
@@ -45,5 +43,11 @@ class BasketItemsController < ApplicationController
 
   def vouchers_applied?
     @vouchers[0].is_applied || @vouchers[1].is_applied || @vouchers[2].is_applied
+  end
+
+  def remove_vouchers
+    @vouchers.each do |item|
+      item.update(is_applied: false)
+    end
   end
 end
