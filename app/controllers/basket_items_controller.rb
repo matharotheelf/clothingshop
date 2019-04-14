@@ -13,7 +13,7 @@ class BasketItemsController < ApplicationController
     update_shop_item
     destroy_basket_item
     @vouchers = Voucher.all
-    if @vouchers[0].is_applied || @vouchers[1].is_applied || @vouchers[2].is_applied
+    if vouchers_applied?
       @vouchers.each do |item|
         item.update(is_applied: false)
       end
@@ -41,5 +41,9 @@ class BasketItemsController < ApplicationController
   def destroy_basket_item
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
+  end
+
+  def vouchers_applied?
+    @vouchers[0].is_applied || @vouchers[1].is_applied || @vouchers[2].is_applied
   end
 end
