@@ -11,8 +11,7 @@ class BasketItemsController < ApplicationController
 
   def delete
     update_shop_item
-    @basket_item = BasketItem.find(params[:id])
-    @basket_item.destroy
+    destroy_basket_item
     @vouchers = Voucher.all
     if @vouchers[0].is_applied || @vouchers[1].is_applied || @vouchers[2].is_applied
       @vouchers.each do |item|
@@ -37,5 +36,10 @@ class BasketItemsController < ApplicationController
   def update_shop_item
     @shop_item = ShopItem.find_by_product_name(params[:product_name])
     @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock + 1)
+  end
+
+  def destroy_basket_item
+    @basket_item = BasketItem.find(params[:id])
+    @basket_item.destroy
   end
 end
