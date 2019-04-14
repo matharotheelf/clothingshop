@@ -14,8 +14,18 @@ class BasketItemsController < ApplicationController
   end
 
   def delete
+    @shop_item = ShopItem.find_by_product_name(params[:product_name])
+    @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock + 1)
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
-    redirect_to root_url
+    @vouchers = Voucher.all
+    if @vouchers[0].is_applied || @vouchers[1].is_applied || @vouchers[2].is_applied
+      @vouchers.each do |item|
+        item.update(is_applied: false)
+      end
+      redirect_to root_url, notice: 'Vouchers removed when an item deleted from basket.'
+    else
+      redirect_to root_url
+    end
   end
 end

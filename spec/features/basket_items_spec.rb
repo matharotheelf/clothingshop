@@ -23,7 +23,7 @@ RSpec.feature 'BasketItems', type: :feature do
       click_button 'Almond Toe Court Shoes, Patent Black'
       click_button 'Suede Shoes, Blue'
       expect(page).to have_content(
-        'Total Price: 141.0'
+        'Total Price: £141.0'
       )
     end
   end
@@ -44,6 +44,53 @@ RSpec.feature 'BasketItems', type: :feature do
       expect(page).to have_content(
         'Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.0 | 4'
       )
+    end
+
+    scenario 'Deleting item from basket increases stock by 1' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Delete 1'
+      expect(page).to have_content(
+        'Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.0 | 5'
+      )
+    end
+  end
+
+  describe 'Deleting item from basket removes all vouchers' do
+    scenario '10 pound voucher removed when item deleted from basket' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Flip Flops, Red'
+      click_button '£10.00 off when you spend over £50.00'
+      click_button 'Delete 1'
+      expect(page).to have_content(
+        'Vouchers removed when an item deleted from basket.'
+      )
+      expect(page).to have_content('Reduced Price: £19.0')
+    end
+
+    scenario '15 pound voucher removed when item deleted from basket' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Flip Flops, Red'
+      click_button '£15.00 off when you have bought at least one footwear item and spent over £75.00'
+      click_button 'Delete 1'
+      expect(page).to have_content(
+        'Vouchers removed when an item deleted from basket.'
+      )
+      expect(page).to have_content('Reduced Price: £19.0')
+    end
+
+    scenario '5 pound voucher removed when item deleted from basket' do
+      visit '/'
+      click_button 'Almond Toe Court Shoes, Patent Black'
+      click_button 'Flip Flops, Red'
+      click_button '£5 pound off'
+      click_button 'Delete 1'
+      expect(page).to have_content(
+        'Vouchers removed when an item deleted from basket.'
+      )
+      expect(page).to have_content('Reduced Price: £19.0')
     end
   end
 end
