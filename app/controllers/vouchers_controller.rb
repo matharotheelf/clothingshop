@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class VouchersController < ApplicationController
+  # manages vouchers
   def apply
     @voucher = Voucher.where(name: params[:name])
     if voucher_invalid?

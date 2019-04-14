@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.feature 'BasketItems', type: :feature do
   describe 'User can add and remove to and from basket' do
     scenario 'User can add items to basket' do

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class BasketItemsController < ApplicationController
+  # controller manages items in basket
   def create
     @shop_item = ShopItem.find(params[:id])
     if @shop_item.quantity_in_stock == 0

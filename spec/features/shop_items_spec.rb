@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.feature 'ShopItems', type: :feature do
   describe 'User sees Shop home page' do
     scenario 'Shop home page welcomes to shop' do

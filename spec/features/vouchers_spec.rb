@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.feature 'Vouchers', type: :feature do
   describe 'Voucher system works' do
     scenario 'User can see vouchers' do

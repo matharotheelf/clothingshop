@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class ShopItemsController < ApplicationController
+  # controller manages items in shop and controls index view
   def index
     create_shop_items
     create_voucher_items
