@@ -4,11 +4,7 @@ class BasketItemsController < ApplicationController
     if @shop_item.quantity_in_stock == 0
       redirect_to root_url, notice: 'Item out of stock.'
     else
-      @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock - 1)
-      @basket_item = BasketItem.create(
-        product_name: @shop_item.product_name, price: @shop_item.price,
-        category: @shop_item.category
-      )
+      update_stock_create_basket_item
       redirect_to root_url
     end
   end
@@ -27,5 +23,15 @@ class BasketItemsController < ApplicationController
     else
       redirect_to root_url
     end
+  end
+
+  private
+
+  def update_stock_create_basket_item
+    @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock - 1)
+    @basket_item = BasketItem.create(
+      product_name: @shop_item.product_name, price: @shop_item.price,
+      category: @shop_item.category
+    )
   end
 end
