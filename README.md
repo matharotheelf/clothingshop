@@ -59,7 +59,7 @@ To remove an item from your shopping cart press 'Delete' under that item's entry
 
 To apply a voucher when valid press 'Apply' with the appropriate items in your cart.
 
-You can see the reduced price of your basket with vouchers applied beneath the vouchers.
+You can see the reduced price of your basket with vouchers applied at the bottom of the page.
 
 ## User Stories
 ```
