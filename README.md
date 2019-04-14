@@ -26,9 +26,13 @@ I realised there was a bug when a voucher is applied and afterwards an item is d
 
 ## Tech Stack
 Ruby v 2.5.1
+
 Rails v 5.2.3 
-Travis CI   
+
+Travis CI  
+
 Rspec  
+
 Capybara
 
 ## Quickstart
