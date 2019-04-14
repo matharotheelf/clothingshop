@@ -53,9 +53,13 @@ To run the tests, navigate to the clothingshop directory (`$ cd clothingshop`) a
 
 From the homepage you can see a list of available products. Press 'Buy' under an item to add the item to your shopping cart.
 
+You can see the total price of your basket underneath the list of items in the basket.
+
 To remove an item from your shopping cart press 'Delete' under that item's entry in the cart.
 
 To apply a voucher when valid press 'Apply' with the appropriate items in your cart.
+
+You can see the reduced price of your basket with vouchers applied beneath the vouchers.
 
 ## User Stories
 ```
