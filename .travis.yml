@@ -20,3 +20,6 @@ deploy:
   provider: heroku
   api_key:
     secure: "f89c0e03-38f2-4f43-8da5-c4def5959043"
+  app: clothing-shop
+  on:
+    repo: matharotheelf/clothingshop
