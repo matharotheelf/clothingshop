@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 language:
 - ruby
 rvm:
@@ -16,10 +17,16 @@ after_script:
   - bundle exec rake coveralls:push
 services:
 - postgresql
+=======
+language: ruby
+>>>>>>> f06a2ba75f5dd894a18dd4c0413207653e9d136e
 deploy:
   provider: heroku
   api_key:
     secure: "f89c0e03-38f2-4f43-8da5-c4def5959043"
+<<<<<<< HEAD
   app: acebook-cats
   on:
     repo: learningtocode101/acebook-team-cats
+=======
+>>>>>>> f06a2ba75f5dd894a18dd4c0413207653e9d136e
