@@ -1,5 +1,15 @@
 class ShopItemsController < ApplicationController
   def index
+    create_shop_items
+    create_voucher_items
+    @shop_items = ShopItem.all
+    @basket_items = BasketItem.all
+    @vouchers = Voucher.all
+  end
+
+  private
+
+  def create_shop_items
     if ShopItem.first.nil?
       ShopItem.create(product_name: 'Almond Toe Court Shoes, Patent Black',
                       category: 'Women’s Footwear',
@@ -54,6 +64,9 @@ class ShopItemsController < ApplicationController
                       price: 540,
                       quantity_in_stock: 5)
     end
+  end
+
+  def create_voucher_items
     if Voucher.first.nil?
       Voucher.create(name: '£5 pound off',
                      is_applied: false,
@@ -65,8 +78,5 @@ class ShopItemsController < ApplicationController
                      is_applied: false,
                      discount: 15)
     end
-    @shop_items = ShopItem.all
-    @basket_items = BasketItem.all
-    @vouchers = Voucher.all
   end
 end
