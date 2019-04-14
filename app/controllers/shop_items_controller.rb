@@ -2,12 +2,16 @@ class ShopItemsController < ApplicationController
   def index
     create_shop_items
     create_voucher_items
+    get_articles
+  end
+
+  private
+
+  def get_articles
     @shop_items = ShopItem.all
     @basket_items = BasketItem.all
     @vouchers = Voucher.all
   end
-
-  private
 
   def create_shop_items
     if ShopItem.first.nil?
