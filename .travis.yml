@@ -23,3 +23,4 @@ deploy:
   app: clothing-shop
   on:
     repo: matharotheelf/clothingshop
+  skip_cleanup: true
