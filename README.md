@@ -22,7 +22,7 @@ The data in the models were managed by three controllers. ShopItems has an index
 
 I decided to make this app a single page app so all the information is available to the user in one page and to keep the app simple. This means there is only one view shop-items/index.html.erb.
 
-I realised there was a bug when a voucher is applied and afterwards an item is deleted from the basket. The voucher remained applied yet with the current basket it could be invalid. I solved this in the simplest way possible by removing all vouchers once an item is deleted from the basket. 
+I realised there was a bug when a voucher is applied and afterwards an item is deleted from the basket. The voucher remained applied yet with the current basket could be invalid. I solved this in the simplest way possible by removing all vouchers once an item is deleted from the basket. 
 
 ## Tech Stack
 Ruby v 2.5.1
