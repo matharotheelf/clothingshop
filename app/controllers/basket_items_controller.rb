@@ -10,8 +10,7 @@ class BasketItemsController < ApplicationController
   end
 
   def delete
-    @shop_item = ShopItem.find_by_product_name(params[:product_name])
-    @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock + 1)
+    update_shop_item
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
     @vouchers = Voucher.all
@@ -33,5 +32,10 @@ class BasketItemsController < ApplicationController
       product_name: @shop_item.product_name, price: @shop_item.price,
       category: @shop_item.category
     )
+  end
+
+  def update_shop_item
+    @shop_item = ShopItem.find_by_product_name(params[:product_name])
+    @shop_item.update(quantity_in_stock: @shop_item.quantity_in_stock + 1)
   end
 end
