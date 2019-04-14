@@ -38,7 +38,7 @@ Capybara
 ## Quickstart
 
 ```bash
-$ git clone https://github.com/matharotheeld/clothingshop
+$ git clone https://github.com/matharotheelf/clothingshop
 $ cd clothingshop
 $ bundle install
 $ bin/rails db:create
